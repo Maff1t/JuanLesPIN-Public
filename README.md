@@ -17,7 +17,7 @@ Then simply follow those **5 steps**:
 
 2. Change directory to C:\pin\source\tools and clone the repo.
 
-3. Open the file C:\pin\source\tools\JuanLesPIN\JuanLesPIN.sln with Visual Studio.
+3. Open the file C:\pin\source\tools\JuanLesPIN-Public\JuanLesPIN.sln with Visual Studio.
 
 4. Go to *Project->Properties* inside Visual Studio menu.
 Then inside *"Configuration Properties" -> C/C++ -> Preprocessor -> "Preprocessor Definitions"* ,
@@ -31,5 +31,5 @@ modify the value of the variable *_WINDOWS_H_PATH* to match your windows develop
 Now to instrument a malware with JuanLesPIN you can launch:
 
 ```
-C:\pin\pin.exe -follow_execv -t C:\pin\source\tools\JuanLesPIN\Release\JuanLesPIN.dll -timer 0 -report evasion-report -- <path to malware>
+C:\pin\pin.exe -follow_execv -t C:\pin\source\tools\JuanLesPIN-Public\Release\JuanLesPIN.dll -timer 0 -report evasion-report -- <path to malware>
 ```
