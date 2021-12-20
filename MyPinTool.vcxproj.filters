@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="sources\HooksHandler.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\ProcessInfo.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Utils.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\SyscallHooks.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\Report.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\fpu.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\JuanLesPIN.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\ProcessInjection.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\StringsConv.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{21ab7b28-462a-4440-89d9-d06a5193a4de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sources">
+      <UniqueIdentifier>{fe828b06-3dc5-4ed2-b8cb-8a52d2c2843e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\HooksHandler.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\ProcessInfo.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Utils.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\SyscallHooks.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Report.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\fpu.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\JuanLesPIN.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\ProcessInjection.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\StringConv.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\md5.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
