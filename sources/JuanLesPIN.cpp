@@ -297,7 +297,7 @@ int main(int argc, char *argv[])
     reportHandler = new Report(reportFileName.str(), honeypotProcess, KnobInsAddrTracing.Value());
 
     MD5 md5;
-    MYINFO("JLP MD5", "%s", md5.digestFile("C:\\pin\\source\\tools\\JuanLesPIN\\Release\\JuanLesPIN.dll"));
+    MYINFO("JLP MD5", "%s", md5.digestFile(JLP_DLL_PATH.c_str()));
 
     if (KnobInsAddrTracing.Value()) {
         INS_AddInstrumentFunction(InsAddrTracing, NULL);

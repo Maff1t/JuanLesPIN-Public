@@ -33,3 +33,6 @@ extern W::ULONGLONG numberOfExecutedInstructionsProgram;
 W::ULONGLONG numberOfExecutedInstructionsLibraries = 0;
 W::HANDLE gDoneEvent = NULL;
 VOID __stdcall forceProgramExit(W::PVOID lpParam, W::BOOLEAN TimerOrWaitFired);
+
+
+const std::string JLP_DLL_PATH = "C:\\pin\\source\\tools\\JuanLesPIN-Public\\Release\\JuanLesPIN.dll";

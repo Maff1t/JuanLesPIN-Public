@@ -307,7 +307,7 @@ public:
 
     /// Load a file from disk and digest it
     // Digests a file and returns the result.
-    char* digestFile(char* filename)
+    char* digestFile(const char* filename)
     {
         Init();
 
