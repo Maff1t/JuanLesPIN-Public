@@ -7,11 +7,17 @@
 #include <vector>
 #include "TCHAR.h"
 #include <sstream>
+#include <sys/stat.h>
 
 namespace W {
 #include "Wincrypt.h"
 #include <windows.h>
 }
+
+const std::string DLL_FOLDER = "C:\\pin\\source\\tools\\JuanLesPIN-Public\\Release\\";
+const std::string JLP_DLL_PATH = DLL_FOLDER + "JuanLesPIN.dll";
+const std::string HON_DLL_PATH = DLL_FOLDER + "Honeypot.exe";
+
 
 #define SSTR( x ) static_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
@@ -146,3 +152,4 @@ std::string GetLastErrorAsString(W::LPTSTR lpszFunction);
 uint16_t our_htons(uint16_t value);
 const char* our_inet_ntoa(W::in_addr ipaddr);
 std::string GetNtPathFromHandle(W::HANDLE handle);
+bool file_exists(const std::string& name);

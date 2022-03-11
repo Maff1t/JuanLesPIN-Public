@@ -603,3 +603,9 @@ uint16_t our_htons(uint16_t value)
 {
 	return ((value & 0xff) << 8) | ((value >> 8) & 0xff);
 }
+
+bool file_exists(const std::string& name)
+{
+	struct stat buffer;
+	return (stat(name.c_str(), &buffer) == 0);
+}

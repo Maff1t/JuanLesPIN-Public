@@ -196,7 +196,6 @@ VOID onImageLoad(IMG img, VOID* v) {
 
         /* Hook library calls in this module */
         hooksHandler->hookApiInThisLibrary(img);
-        return;
     }
     PIN_UnlockClient();
 }
@@ -284,7 +283,14 @@ VOID InsAddrTracing(INS ins, VOID* v)
 
 int main(int argc, char *argv[])
 {
-
+    if (!file_exists(JLP_DLL_PATH)) {
+        std::cout <<"Wrong path of JLP dll. Can't continue.";
+        return -1;
+    }
+    if (!file_exists(HON_DLL_PATH)) {
+        std::cout << "Wrong path of Honeypot executable. Can't continue.";
+        return -1;
+    }
     W::HANDLE hTimer = NULL;
     W::HANDLE hTimerQueue = NULL;
 
@@ -298,6 +304,11 @@ int main(int argc, char *argv[])
 
     MD5 md5;
     MYINFO("JLP MD5", "%s", md5.digestFile(JLP_DLL_PATH.c_str()));
+
+    if (KnobDump.Value() == 1 && !file_exists(PROCDUMPBINARY)) {
+        std::cout << "Wrong path of procdump executable. Can't continue.";
+        return -1;
+    }
 
     if (KnobInsAddrTracing.Value()) {
         INS_AddInstrumentFunction(InsAddrTracing, NULL);

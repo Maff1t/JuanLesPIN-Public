@@ -20,7 +20,8 @@ bool initHoneypotProcess(string reportFileName, W::DWORD parentPid) {
     std::stringstream namedPipeName, report;
     namedPipeName << "\\\\.\\pipe\\honeypotPipe_" << parentPid;
     report << reportFileName << "-honeypot-" << parentPid;
-    snprintf(cmdLine, CMDLINESIZE, "-follow_execv -t  C:\\pin\\source\\tools\\JuanLesPIN\\Release\\JuanLesPIN.dll -honeypot 1 -pipeName %s -report %s -- C:\\pin\\source\\tools\\JuanLesPIN\\Release\\Honeypot.exe", namedPipeName.str().c_str(), report.str().c_str());
+    snprintf(cmdLine, CMDLINESIZE, "-follow_execv -t  %s -honeypot 1 -pipeName %s -report %s -- %s", 
+        JLP_DLL_PATH.c_str(), namedPipeName.str().c_str(), report.str().c_str(), HON_DLL_PATH.c_str());
     /* Creating Honeypot Process */
     if (!W::CreateProcessA("C:\\pin\\pin.exe", cmdLine, 0, 0, TRUE, CREATE_NO_WINDOW, 0, 0, pStartupInfo, pProcessInfo)) {
         MYERROR("CreateProcessA: error creating honeypot process");
