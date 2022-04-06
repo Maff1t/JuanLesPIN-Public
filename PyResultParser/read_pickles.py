@@ -87,7 +87,7 @@ if __name__ == '__main__':
                     write_flush(fp, sha256)
                     continue
                 try:
-                    with (open(fpath, "rb")) as fp:
+                    with open(fpath, "rb") as fp:
                         da: DynAnal = pickle.load(fp)
                         #extract_features(da)  # for the ML guys, uncomment this call
                         tot_samples += 1
@@ -95,7 +95,7 @@ if __name__ == '__main__':
                         n_of_processes.append(len(da.pidToEvents))
                         if da.is_empty():
                             empty_samples += 1
-                            write_flush(fp_empty, sha256)
+                            write_flush(fp_empty, 'E,'+sha256)
                         n_of_events.append(len(da.orderedEvents))
                         if da.evasion_detected():
                             evasive_samples += 1
@@ -104,8 +104,9 @@ if __name__ == '__main__':
                                     n_of_evasive[cat].append(t)
                         if da.injection_detected():
                             injection_samples += 1
-                except (EOFError, pickle.UnpicklingError) as e:
+                except Exception:
                     broken_pickle += 1
+                    write_flush(fp_empty, 'B,' + sha256)
     print('tot_samples', tot_samples)
     print('broken_pickle', broken_pickle)
     print('empty_samples', get_perc_round(tot_samples, empty_samples))
