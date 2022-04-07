@@ -2,9 +2,8 @@ import os
 import json
 import pickle
 import sys
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
-
+from pprint import pprint
+from pathlib import PureWindowsPath
 from collections import Counter, OrderedDict
 from statistics import mean, median, stdev
 from typing import List, Dict, Tuple
@@ -13,8 +12,7 @@ from os.path import isdir, abspath, join, basename, exists, isfile
 from classes import *
 
 
-# use this function to get the features
-def extract_features(report: DynAnal):
+def extract_features(report: DynAnal) -> List:
     out = list()
     for event in report.orderedEvents:
         t = event['Type']
@@ -29,12 +27,39 @@ def extract_features(report: DynAnal):
                         arg = arg[4:]
                     elif arg.startswith('\\Dev'):
                         arg = arg.replace('\\Device\\HarddiskVolume2', 'C:')
-                    out.append(f'{category}|{arg}')
-            print(category, symbol, arg)  # <- behaviour features
+                    arg = arg.lower()
+                    arg = arg.replace('guannapenna', 'slasti')
+                    if category in ['FILESYSTEM', 'PROCESS']:
+                        try:
+                            pwp = PureWindowsPath(arg)
+                            arg = str(pwp).replace(pwp.stem, '')  # remove filename  but keep extension
+                        except:
+                            pass
+                    elif category == 'NETWORK':
+                        if ':' in arg:
+                            arg = arg.split(':')[1]
+                    elif category == 'MUTEX':
+                        arg = ''  # mutex argument is useless
+                    elif category == 'REGISTRY':
+                        pass
+                    elif category == 'SERVICE':
+                        if 'name=' in arg:
+                            arg = arg.split('=')[1]
+                        else:
+                            arg = ''
+                        print(f'{category}|{symbol}|{arg}')
+                    else:
+                        print(f'{category}|{symbol}|{arg}')
+                    arg = arg.replace(' ', '')
+            if arg is None or arg == '':
+                feat = f'{symbol}'
+            else:
+                feat = f'{symbol}|{arg}'
+            out.append(feat)
         elif t == 'EVA':
             category = event['Cat']
             title = event['Title']
-            print(category, title)  # <- evasive features
+            #print(category, title)  # <- evasive features
     return out
 
 def is_empty(file_path: str) -> bool:
@@ -56,17 +81,12 @@ if __name__ == '__main__':
     i = 0
     for filename in files:
         if filename.endswith('.pickle'):
-            print(i, filename)
+            #print(i, filename)
             i += 1
-            if i == 42:
-                break
             sha256 = filename[:-7]
             assert len(sha256) == 64
             fpath = join(pickles_folder, filename)
             assert not is_empty(fpath)
-            try:
-                with open(fpath, "rb") as fp:
-                    da: DynAnal = pickle.load(fp)
-                    pp.print(extract_features(da))
-            except:
-                pass
+            with open(fpath, "rb") as fp:
+                da: DynAnal = pickle.load(fp)
+                features_list: List = extract_features(da)  # <- here you go!
