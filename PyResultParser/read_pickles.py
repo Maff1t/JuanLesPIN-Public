@@ -63,6 +63,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         sys.exit(f'Usage: {basename(__file__)} PICKLES_FOLDER')
     pickles_folder = sys.argv[1]
+    assert exists(pickles_folder)
 
     if isfile(pickles_folder):
         with open(pickles_folder, "rb") as fp:
