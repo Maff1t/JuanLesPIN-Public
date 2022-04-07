@@ -67,7 +67,7 @@ if __name__ == '__main__':
     if isfile(pickles_folder):
         with open(pickles_folder, "rb") as fp:
             da: DynAnal = pickle.load(fp)
-            print('Events:', len(da.orderedEvents))
+            print(str(da))
             breakpoint()
         sys.exit()
 
