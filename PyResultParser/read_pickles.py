@@ -5,7 +5,7 @@ import sys
 from collections import Counter, OrderedDict
 from statistics import mean, median, stdev
 from typing import List, Dict, Tuple
-from os.path import isdir, abspath, join, basename, exists
+from os.path import isdir, abspath, join, basename, exists, isfile
 
 from classes import *
 
@@ -63,8 +63,15 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         sys.exit(f'Usage: {basename(__file__)} PICKLES_FOLDER')
     pickles_folder = sys.argv[1]
-    assert isdir(pickles_folder)
 
+    if isfile(pickles_folder):
+        with open(pickles_folder, "rb") as fp:
+            da: DynAnal = pickle.load(fp)
+            print('Events:', len(da.orderedEvents))
+            breakpoint()
+        sys.exit()
+
+    assert isdir(pickles_folder)
     tot_samples: int = 0
     empty_samples: int = 0
     empty_files: int = 0
