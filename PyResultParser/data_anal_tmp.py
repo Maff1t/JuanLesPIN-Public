@@ -56,6 +56,7 @@ if __name__ == '__main__':
     i = 0
     for filename in files:
         if filename.endswith('.pickle'):
+            print(i, filename)
             i += 1
             if i == 42:
                 break
