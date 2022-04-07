@@ -89,4 +89,14 @@ if __name__ == '__main__':
             assert not is_empty(fpath)
             with open(fpath, "rb") as fp:
                 da: DynAnal = pickle.load(fp)
-                features_list: List = extract_features(da)  # <- here you go!
+                features_list: List = extract_features(da)
+                for feat in features_list:
+                    api_name = None
+                    arg = None
+                    if '|' in feat:
+                        spt = feat.split('|')
+                        api_name = spt[0]
+                        arg = spt[1]
+                    else:
+                        api_name = feat
+                    print(api_name, arg)  # <- here you go!
