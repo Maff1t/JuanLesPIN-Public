@@ -41,7 +41,7 @@ class DynAnal:
         return False
 
     def is_empty(self) -> bool:
-        return len(self.orderedEvents) == 0
+        return len(self.orderedEvents) <= 2
 
     def __str__(self):
         return f'sha256={self.sha256}, ' \
