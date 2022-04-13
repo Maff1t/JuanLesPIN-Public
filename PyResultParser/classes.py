@@ -43,8 +43,8 @@ class DynAnal:
     def is_empty(self) -> bool:
         for event in self.orderedEvents:
             if event['Type'].startswith('BE'):
-                return True
-        return False
+                return False
+        return True
 
     def __str__(self):
         return f'sha256={self.sha256}, ' \
