@@ -2,8 +2,19 @@
 
 [IntelPin](https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-binary-instrumentation-tool-downloads.html) tool to detect and mitigate Windows malware evasion techniques. 
 
-This tool is a prototype developed for a research project whose paper is currently under submission. 
-In order to comply with double-blind, also the name of the tool present in the paper has been opportunely anonymized.
+This tool is a prototype developed for the paper "[Longitudinal Study of the Prevalence of Malware Evasive Techniques](https://arxiv.org/abs/2112.11289)". 
+
+If you use this tool in a research project, please cite:
+```
+@article{maffia2021longitudinal,
+  title={Longitudinal Study of the Prevalence of Malware Evasive Techniques},
+  author={Maffia, Lorenzo and Nisi, Dario and Kotzias, Platon and Lagorio, Giovanni and Aonzo, Simone and Balzarotti, Davide},
+  journal={arXiv preprint arXiv:2112.11289},
+  year={2021}
+}
+```
+
+
 
 ## Installation
 To install this tool you will need to download first:
