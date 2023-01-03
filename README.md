@@ -2,7 +2,7 @@
 
 [IntelPin](https://www.intel.com/content/www/us/en/developer/articles/tool/pin-a-binary-instrumentation-tool-downloads.html) tool to detect and mitigate Windows malware evasion techniques. 
 
-This tool is a prototype developed for the paper "[Longitudinal Study of the Prevalence of Malware Evasive Techniques](https://arxiv.org/abs/2112.11289)". 
+This tool is a prototype developed at [EURECOM](https://www.eurecom.fr/) for the paper "[Longitudinal Study of the Prevalence of Malware Evasive Techniques](https://arxiv.org/abs/2112.11289)". 
 
 If you use this tool in a research project, please cite:
 ```
