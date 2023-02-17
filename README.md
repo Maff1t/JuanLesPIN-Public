@@ -47,4 +47,10 @@ C:\pin\pin.exe -follow_execv -t C:\pin\source\tools\JuanLesPIN-Public\Release\Ju
 
 ## Memory dump support
 
-Copy the [procdump](https://learn.microsoft.com/en-us/sysinternals/downloads/procdump} executable under: `C:\Procdump\procdump.exe`
+Copy the [procdump](https://learn.microsoft.com/en-us/sysinternals/downloads/procdump) executable under: `C:\Procdump\procdump.exe`
+
+Run the JuanLesPIN with:
+
+`-dump 1` to dump the whole process
+
+`-dump 2` to just dump the "Red Zone"
