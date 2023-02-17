@@ -44,3 +44,7 @@ Now to instrument a malware with JuanLesPIN you can launch:
 ```
 C:\pin\pin.exe -follow_execv -t C:\pin\source\tools\JuanLesPIN-Public\Release\JuanLesPIN.dll -timer 0 -report evasion-report -- <path to malware>
 ```
+
+## Memory dump support
+
+Copy the [procdump](https://learn.microsoft.com/en-us/sysinternals/downloads/procdump} executable under: `C:\Procdump\procdump.exe`
